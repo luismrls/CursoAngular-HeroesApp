@@ -4,8 +4,11 @@ import { Heroe } from '../../interfaces/hereoes.interface';
 @Component({
   selector: 'app-heroe-terjea',
   templateUrl: './heroe-terjea.component.html',
-  styles: [
-  ]
+  styles: [`
+    mat-card {
+      margin-top: 20px
+    }
+  `]
 })
 export class HeroeTerjeaComponent {
 
