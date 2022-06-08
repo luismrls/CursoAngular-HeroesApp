@@ -9,6 +9,7 @@ import { HeroesRoutingModule } from './heroes-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material/material.module';
 import { HeroeTerjeaComponent } from './components/heroe-terjea/heroe-terjea.component';
+import { ImagenPipe } from './pipes/imagen.pipe';
 
 
 
@@ -19,7 +20,8 @@ import { HeroeTerjeaComponent } from './components/heroe-terjea/heroe-terjea.com
     HeroeComponent,
     HomeComponent,
     ListadoComponent,
-    HeroeTerjeaComponent
+    HeroeTerjeaComponent,
+    ImagenPipe
   ],
   imports: [
     CommonModule,
