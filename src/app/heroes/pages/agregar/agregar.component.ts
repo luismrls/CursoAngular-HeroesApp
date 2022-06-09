@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Heroe, Publisher } from '../../interfaces/hereoes.interface';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-agregar',
@@ -11,8 +12,8 @@ export class AgregarComponent implements OnInit {
 
   publishers = [
     {
-      id: 'Dc Comics',
-      desc: 'Dc - Comics'
+      id: 'DC Comics',
+      desc: 'DC - Comics'
     }, 
     {
       id: 'Marvel Comics',
@@ -30,9 +31,18 @@ export class AgregarComponent implements OnInit {
 
   }
 
-  constructor() { }
+  constructor(private heroeService: HeroesService) { }
 
   ngOnInit(): void {
+  }
+
+  guardar(){
+
+    if(this.heroe.superhero.trim().length === 0) {
+      return
+    }
+
+    this.heroeService.agregarHeroe( this.heroe ).subscribe( resp => console.log('respueta', resp))
   }
 
 }

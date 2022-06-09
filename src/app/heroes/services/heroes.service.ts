@@ -11,17 +11,21 @@ export class HeroesService {
 
   private baseUrl: string = environment.baseUrl;
 
-  constructor( private httt: HttpClient) { }
+  constructor( private http: HttpClient) { }
 
   getHeroes(): Observable<Heroe[]> {
-    return this.httt.get<Heroe[]>(`${this.baseUrl}/heroes`)
+    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes`)
   }
 
   getHeroeById(id: string): Observable<Heroe> {
-    return this.httt.get<Heroe>(`${this.baseUrl}/heroes/${id}`)
+    return this.http.get<Heroe>(`${this.baseUrl}/heroes/${id}`)
   }
 
   getSugerencias(termino: string): Observable<Heroe[]> {
-    return this.httt.get<Heroe[]>(`${this.baseUrl}/heroes?q=${ termino }&_limit=6`)
+    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes?q=${ termino }&_limit=6`)
+  }
+
+  agregarHeroe( heroe: Heroe ): Observable<Heroe> {
+    return this.http.post<Heroe>(`${this.baseUrl}/heroes`, heroe);
   }
 }
